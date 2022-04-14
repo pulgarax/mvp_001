@@ -79,6 +79,8 @@ export const AudioProvider = ({ children }) => {
 	useEffect(() => {
 		filterTwo.current.set({ frequency: parseFloat(filterFrequencyTwo) });
 	}, [filterFrequencyTwo]);
+	
+	
 
 	return (
 		<MyAudioContext.Provider

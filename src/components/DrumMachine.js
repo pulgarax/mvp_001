@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import "./DrumMachine.css";
-//import Poti from "./Poti";
 import { MyAudioContext } from "./AudioPlayer";
 import * as Tone from "tone";
-import styled from "styled-components";
+import styled from 'styled-components';
+
+//Button
+const StyledButton = styled.button`
+  background-color: black;
+  font-size: 32px;
+  color: white;
+`; 
 
 //Slider 
 // excess height to improve interactive area / accessibility
@@ -25,14 +31,12 @@ const makeLongShadow = (color, size) => {
 	}
 	return shadow;
   };
-  const Wrapper = styled.div`
-  /* width:100%; */
-`;
+
 const Range = styled.input`
   overflow: hidden;
   display: block;
   appearance: none;
-  /* el largo de la barra */
+ 
   max-width: 700px;
   width: 90%;
   margin: 0;
@@ -82,7 +86,6 @@ const Range = styled.input`
 `;
 
 
-const random = (min, max) => Math.random() * (max - min) + min;
 
 export default function TonePlayer() {
 	const {
@@ -102,9 +105,17 @@ export default function TonePlayer() {
 		setFilterFrequencyTwo,
 	} = useContext(MyAudioContext);
 
+
 	useEffect(() => {
 		Tone.start();
+
 	}, []);
+
+
+	
+	const random = (min, max) => Math.random() * (max - min) + min;
+	
+
 
 	return (
 		<div className="machine">
@@ -141,7 +152,7 @@ export default function TonePlayer() {
 
 			<span className="vol-box">
 				<label htmlFor="vol">VolumeChannelOne</label>
-				<Wrapper>
+			
 				<Range
 					onChange={(event) => {
 						setVolumeValueOne(event.target.value);
@@ -155,11 +166,11 @@ export default function TonePlayer() {
 					step="0.1"
 					type="range" 
 				></Range>
-				</Wrapper>
+		
 			</span>
 			<span className="vol-box2">
 				<label htmlFor="vol">VolumeChannelTwo</label>
-				<Wrapper>
+	
 				<Range
 					onChange={(event) => {
 						setVolumeValueTwo(event.target.value);
@@ -173,11 +184,11 @@ export default function TonePlayer() {
 					step="0.1"
 					type="range" 
 				></Range>
-					</Wrapper>
+			
 			</span>
 			<span className="pitch-box">
 				<label htmlFor="vol">Pitch1</label>
-				<Wrapper>
+
 				<Range
 					onChange={(event) => {
 						setPitchValueOne(event.target.value);
@@ -191,12 +202,12 @@ export default function TonePlayer() {
 					step="0.1"
 					type="range" 
 				></Range>
-				</Wrapper>
+
 			</span>
 
 			<span className="pitch-box2">
 				<label htmlFor="vol">Pitch2</label>
-				<Wrapper>
+			
 				<Range
 					onChange={(event) => {
 						setPitchValueTwo(event.target.value);
@@ -210,11 +221,11 @@ export default function TonePlayer() {
 					step="0.1"
 					type="range" 
 				></Range>
-					</Wrapper>
+			
 			</span>
 			<span className="filter-box">
 				<label htmlFor="vol">Filter1</label>
-				<Wrapper>
+		
 				<Range
 					onChange={(event) => {
 						setFilterFrequencyOne(event.target.value);
@@ -228,11 +239,11 @@ export default function TonePlayer() {
 					step="0.1"
 					type="range" 
 				></Range>
-					</Wrapper>
+			
 			</span>
 			<span className="filter-box2">
 				<label htmlFor="vol">Filter2</label>
-				<Wrapper>
+		
 				<Range
 					onChange={(event) => {
 						setFilterFrequencyTwo(event.target.value);
@@ -246,7 +257,7 @@ export default function TonePlayer() {
 					step="0.1"
 					type="range" 
 				></Range>
-				</Wrapper>
+		
 			</span>
 		</div>
 	);
