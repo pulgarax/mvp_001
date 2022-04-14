@@ -79,6 +79,13 @@ export const AudioProvider = ({ children }) => {
 	useEffect(() => {
 		filterTwo.current.set({ frequency: parseFloat(filterFrequencyTwo) });
 	}, [filterFrequencyTwo]);
+
+	//LFO
+	// useEffect(() => {
+	// 	const lfo = new Tone.LFO("2n").start();
+	// 	lfo.connect(pitchValueOne);
+	//   }, [pitchValueOne]);
+	
 	
 	
 
