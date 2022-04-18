@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "./DrumMachine.css";
 import { MyAudioContext } from "./AudioPlayer";
 import * as Tone from "tone";
-import Slider from 'react-rangeslider'
 import Poti from "./Poti";
 
 

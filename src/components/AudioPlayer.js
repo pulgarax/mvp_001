@@ -3,6 +3,8 @@ import { Player } from "tone";
 import Sound from "./weirdDrum.mp3";
 import SecondSound from "./nuevo9.mp3";
 import * as Tone from "tone";
+//import ReactSimpleRange from 'react-simple-range';
+//import SliderTrack from "./SliderTrack";
 
 export const MyAudioContext = React.createContext();
 
@@ -86,10 +88,8 @@ export const AudioProvider = ({ children }) => {
 	// 	lfo.connect(pitchValueOne);
 	//   }, [pitchValueOne]);
 	
-	
-	
-
 	return (
+
 		<MyAudioContext.Provider
 			value={{
 				playerOne,
