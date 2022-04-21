@@ -49,7 +49,7 @@ export default function TonePlayer() {
     setFilterFrequencyTwo
   } = useContext(MyAudioContext);
   console.log("TonPlayer", pitchValueOne)
-  //sobald sich eín Wert im useContext(MyAudioContext); verändert  verlieren wir den Context in der 3D scene. Warum? Wird als Prop durchgereicht.
+
 
   useEffect(() => {
     Tone.start();
@@ -113,8 +113,6 @@ export default function TonePlayer() {
         }}
       >  
       </button> 
-
- 
   
         <input type="range" 
           onChange={(event) => {
@@ -131,14 +129,9 @@ export default function TonePlayer() {
         </div> 
         </div>
 
-      
-
-
-    
-        <div className="filterContainer">
+       <div className="filterContainer">
           <div className="filterBox">
 
-      
 
         <input type="range"
           onChange={(event) => {
