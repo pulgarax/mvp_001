@@ -1,12 +1,36 @@
 import React, { useEffect, useContext } from "react";
-import "./DrumMachine.css";
 import { MyAudioContext } from "./AudioPlayer";
 import * as Tone from "tone";
-import Poti from "./Poti";
-
+import "./globals.css";
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import Scene from "./scene";
 
 const random = (min, max) => Math.random() * (max - min) + min;
+const Test = ()=> {
+  
+  const {
+    playerOne,
+    playerTwo,
+    filterFrequencyOne,
+    setFilterFrequencyOne,
+    volumeValueOne,
+    setVolumeValueOne,
+    pitchValueOne,
+    setPitchValueOne,
+    volumeValueTwo,
+    setVolumeValueTwo,
+    pitchValueTwo,
+    setPitchValueTwo,
+    filterFrequencyTwo,
+    setFilterFrequencyTwo
+  } = useContext(MyAudioContext);
+  console.log("Test", pitchValueOne)
 
+
+
+  return null;
+}
 export default function TonePlayer() {
   const {
     playerOne,
@@ -24,110 +48,101 @@ export default function TonePlayer() {
     filterFrequencyTwo,
     setFilterFrequencyTwo
   } = useContext(MyAudioContext);
+  console.log("TonPlayer", pitchValueOne)
+  //sobald sich eín Wert im useContext(MyAudioContext); verändert  verlieren wir den Context in der 3D scene. Warum? Wird als Prop durchgereicht.
 
   useEffect(() => {
     Tone.start();
   }, []);
 
   return (
-    <div className="machine">
-      <div>
-        <button
+    <div className="mainWrapper">
+      <div className="buttonContainer">
+        <button className="blackButton"
           type="button"
           onClick={() => {
             playerOne.start();
             playerTwo.start();
           }}
         >
-          Start Ton
+          ᐅ
         </button>
-        <button
+        <button className="blackButton"
           type="button"
           onClick={() => {
             playerOne.stop();
             playerTwo.stop();
           }}
         >
-          Stop Ton
+          ◻
         </button>
       </div>
-      <button
+      <div className="boxContainer">
+      <div className="controlContainer">
+      <button className="negro-button"
         onClick={() => {
           setPitchValueOne(random(0.001, 2));
           setPitchValueTwo(random(0.001, 2));
           setFilterFrequencyOne(random(0, 8000));
           setFilterFrequencyTwo(random(0, 8000));
         }}
-      >
-        randomizer
+      >  
       </button>
-
-      <span className="vol-box">
-        <label htmlFor="vol">VolumeChannelOne</label>
+         
         <input type="range"
           onChange={(event) => {
-            setVolumeValueOne(event.target.value);
-            console.log(event.target.value);
-          }}
-          value={volumeValueOne}
-          id="volM"
-          name="vol"
-          min={-90}
-          max={3}
-          step="0.1"
-        ></input>
-      </span>
-      <span className="vol-box2">
-        <label htmlFor="vol">VolumeChannelTwo</label>
-        <input type="range"
-          onChange={(event) => {
-            setVolumeValueTwo(event.target.value);
-            console.log(event.target.value);
-          }}
-          value={volumeValueTwo}
-          id="volM2"
-          name="vol2"
-          min={-90}
-          max={3}
-          step="0.1"
-        ></input>
-      </span>
-      <span className="pitch-box">
-        <label htmlFor="vol">Pitch1</label>
-        <input type="range"
-          onChange={(event) => {
-            setPitchValueOne(event.target.value);
+            setPitchValueOne(parseFloat(event.target.value));
             console.log(event.target.value);
           }}
           value={pitchValueOne}
-          id="pitchM"
+          id="pitch-box"
           name="vol"
           min={0.001}
           max={2}
           step="0.1"
         ></input>
-      </span>
+        </div>
+  
+        <div className="controlContainer">
+              <button className="negro-button" 
+        onClick={() => {
+          setPitchValueOne(random(0.001, 2));
+          setPitchValueTwo(random(0.001, 2));
+          setFilterFrequencyOne(random(0, 8000));
+          setFilterFrequencyTwo(random(0, 8000));
+        }}
+      >  
+      </button> 
 
-      <span className="pitch-box2">
-        <label htmlFor="vol">Pitch2</label>
-        <input type="range"
+ 
+  
+        <input type="range" 
           onChange={(event) => {
-            setPitchValueTwo(event.target.value);
+            setPitchValueTwo(parseFloat(event.target.value));
             console.log(event.target.value);
           }}
           value={pitchValueTwo}
-          id="pitchM2"
+          id="pitch-box2"
           name="vol2"
           min={0.001}
           max={2}
           step="0.1"
         ></input>
-      </span>
-      <span className="filter-box">
-        <label htmlFor="vol">Filter1</label>
+        </div> 
+        </div>
+
+      
+
+
+    
+        <div className="filterContainer">
+          <div className="filterBox">
+
+      
+
         <input type="range"
           onChange={(event) => {
-            setFilterFrequencyOne(event.target.value);
+            setFilterFrequencyOne(parseFloat(event.target.value));
             console.log(event.target.value);
           }}
           value={filterFrequencyOne}
@@ -137,12 +152,18 @@ export default function TonePlayer() {
           max={8000}
           step="0.1"
         ></input>
-      </span>
-      <span className="filter-box2">
-        <label htmlFor="vol">Filter2</label>
-        <input type="range"
+        </div>
+
+
+        
+        
+
+
+
+        <div className="filterBox">
+         <input type="range"
           onChange={(event) => {
-            setFilterFrequencyTwo(event.target.value);
+            setFilterFrequencyTwo(parseFloat(event.target.value));
             console.log(event.target.value);
           }}
           value={filterFrequencyTwo}
@@ -152,7 +173,63 @@ export default function TonePlayer() {
           max={8000}
           step="0.1"
         ></input>
-      </span>
+        </div>
+        </div>
+
+        
+<div className="renderContainer">
+        <div className="renderBox">
+        <Canvas shadows camera={{position:[0,0.4,0]}}> 
+        <Test />
+        <color attach="background" args={["white"]} />
+        {/**You dont need the suspense for this example, 
+        only if you add a Texture-Loader, just keep that in mind+*/}
+        <Suspense fallback={null}>
+          <Scene pitchValue={pitchValueOne} filterFrequency={filterFrequencyOne}  /> 
+        </Suspense>
+      </Canvas>
+      </div>
+
+      <div className="renderBox">
+        <Canvas shadows camera={{position:[0,0.4,0]}}>
+        <color attach="background" args={["white"]} />
+        {/**You dont need the suspense for this example, 
+        only if you add a Texture-Loader, just keep that in mind+*/}
+        <Suspense fallback={null}>
+          <Scene pitchValue={pitchValueTwo} filterFrequency={filterFrequencyTwo}/> 
+        </Suspense>
+      </Canvas>
+      </div></div>
+  
+        <div className="volumeContainer">
+        <input type="range"
+          onChange={(event) => {
+            setVolumeValueOne(parseFloat(event.target.value));
+            console.log(event.target.value);
+          }}
+          value={volumeValueOne}
+          id="volM1"
+          name="vol"
+          min={-90}
+          max={3}
+          step="0.1"
+        ></input>
+        <input type="range"
+          onChange={(event) => {
+            setVolumeValueTwo(parseFloat(event.target.value));
+            console.log(event.target.value);
+          }}
+          value={volumeValueTwo}
+          id="volM2"
+          name="vol2"
+          min={-90}
+          max={3}
+          step="0.1"
+        ></input>
+       
+  
+
+        </div>
     </div>
   );
 }

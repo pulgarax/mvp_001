@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Player } from "tone";
-import Sound from "./weirdDrum.mp3";
-import SecondSound from "./nuevo9.mp3";
+import Sound from "./sounds/weirdDrum.mp3"
+import SecondSound from "./sounds/nuevo9.mp3";
 import * as Tone from "tone";
-//import ReactSimpleRange from 'react-simple-range';
-//import SliderTrack from "./SliderTrack";
+import "./globals.css";
 
-export const MyAudioContext = React.createContext();
+export const MyAudioContext = React.createContext({});
 
 const initialFilterFrequencyOne = 5000;
 const initialFilterFrequencyTwo = 5000;
 const initialVolumeValueOne = 2;
 const initialVolumeValueTwo = 2;
-const initialPitchValueOne = 1;
+const initialPitchValueOne = 0.1;
 const initialPitchValueTwo = 1;
 
 export const AudioProvider = ({ children }) => {
@@ -88,6 +87,8 @@ export const AudioProvider = ({ children }) => {
 	// 	lfo.connect(pitchValueOne);
 	//   }, [pitchValueOne]);
 	
+	console.log("context",pitchValueOne)
+
 	return (
 
 		<MyAudioContext.Provider
