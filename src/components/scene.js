@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import Box from "./Box";
+
 import CrazyComponent from "./CrazyComponent";
 import Model from "./LocoComponent";
 
@@ -14,11 +14,10 @@ const Scene = ({pitchValue, filterFrequency}) => {
       <spotLight castShadow intensity={1} position={[0, 3, 3]} />
         <OrbitControls />
       <Model pitchValue={pitchValue} filterFrequency={filterFrequency} />
-      {/**<Box pitchValue={pitchValue} filterFrequency={filterFrequency} /> */}
         <CrazyComponent pitchValue={pitchValue} filterFrequency={filterFrequency} />
       
     </group>
   );
-};
+};  
 
 export default Scene;

@@ -175,8 +175,7 @@ export default function TonePlayer() {
         <Canvas shadows camera={{position:[0,0.4,0]}}> 
         <Test />
         <color attach="background" args={["white"]} />
-        {/**You dont need the suspense for this example, 
-        only if you add a Texture-Loader, just keep that in mind+*/}
+       
         <Suspense fallback={null}>
           <Scene pitchValue={pitchValueOne} filterFrequency={filterFrequencyOne}  /> 
         </Suspense>
@@ -186,8 +185,7 @@ export default function TonePlayer() {
       <div className="renderBox">
         <Canvas shadows camera={{position:[0,0.4,0]}}>
         <color attach="background" args={["white"]} />
-        {/**You dont need the suspense for this example, 
-        only if you add a Texture-Loader, just keep that in mind+*/}
+     
         <Suspense fallback={null}>
           <Scene pitchValue={pitchValueTwo} filterFrequency={filterFrequencyTwo}/> 
         </Suspense>

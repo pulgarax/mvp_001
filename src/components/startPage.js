@@ -1,7 +1,7 @@
 // import { useRef, useEffect } from 'react';
 // import { Sketch } from './shader/app';
 
-// const startPage = (props) => {
+// const StartPage = (props) => {
 //   const container = useRef()
 
 //   useEffect = (() => {
@@ -14,3 +14,5 @@
 //     <div ref={container} />
 //   );
 // }
+
+// export default StartPage

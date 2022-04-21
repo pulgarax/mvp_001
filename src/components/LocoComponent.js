@@ -2,18 +2,18 @@
 import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei/'
 import { useFrame } from "@react-three/fiber";
-import { current } from 'immer';
+
 
 
 function Model({pitchValue, filterFrequency}) {
   const group = useRef()
   useFrame(() => {
-    // group.current.rotation.x += (pitchValue /230);
-    // group.current.rotation.z += (filterFrequency/290000)
+    group.current.rotation.x += (pitchValue /230);
+    group.current.rotation.z += (filterFrequency/290000)
     
-    group.current.rotation.x += Math.random() * 0.003; 
-    group.current.rotation.y += Math.random() * 0.0033;
-    group.current.rotation.z += Math.random() * 0.0039;
+    // group.current.rotation.x += Math.random() * 0.003; 
+    // group.current.rotation.y += Math.random() * 0.0033;
+    // group.current.rotation.z += Math.random() * 0.0039;
 
   });
   const { nodes, materials } = useGLTF('/Model1_Comp.glb')
