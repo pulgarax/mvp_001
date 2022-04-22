@@ -3,7 +3,7 @@
 ## Description
 ---
 
-rodeo (mvp) ist eine Klangbibliothek und wird über eine Web-App veröffentlicht. Auf diese Weise lässt sich eine Klangsammlung auf unterhaltsame Art und Weise untersuchen. Es handelt sich um eine möglichst intuitiv zu bedienende Software, bei der der Schwerpunkt auf der grafischen Gestaltung der Benutzeroberfläche liegt, um in die Klänge einzugreifen. Sowohl Musikproduzenten als auch experimentierte Laien können dieses Instrument nutzen, um ihre Klangpalette für jede Art von Projekt zu erweitern.ist eine Klangbibliothek und wird über eine Web-App veröffentlicht. Auf diese Weise lässt sich eine Klangsammlung auf unterhaltsame Art und Weise untersuchen. Es handelt sich um eine möglichst intuitiv zu bedienende Software, bei der der Schwerpunkt auf der grafischen Gestaltung der Benutzeroberfläche liegt, um in die Klänge einzugreifen. Sowohl Musikproduzenten als auch experimentierte Laien können dieses Instrument nutzen, um ihre Klangpalette für jede Art von Projekt zu erweitern.
+rodeo (mvp) is a library of Sounds and is released over a web application. It is a fun way to explore a selection of wild sounds. It is a software created for the most intuitive use possible, focusing on the graphic design of the interface to intervene on the sounds. Both music producers and experienced enthusiasts can use this tool to expand their sound palette for any sort of project.
 
 ---
 
