@@ -57,26 +57,9 @@ export default function TonePlayer() {
 
   return (
     <div className="mainWrapper">
-      <div className="buttonContainer">
-        <button className="blackButton"
-          type="button"
-          onClick={() => {
-            playerOne.start();
-            playerTwo.start();
-          }}
-        >
-          ᐅ
-        </button>
-        <button className="blackButton"
-          type="button"
-          onClick={() => {
-            playerOne.stop();
-            playerTwo.stop();
-          }}
-        >
-          ◻
-        </button>
-      </div>
+  
+
+
       <div className="boxContainer">
       <div className="controlContainer">
       <button className="negro-button"
@@ -217,6 +200,27 @@ export default function TonePlayer() {
           max={3}
           step="0.1"
         ></input>
+
+<div className="buttonContainer">
+        <button className="blackButton"
+          type="button"
+          onClick={() => {
+            playerOne.start();
+            playerTwo.start();
+          }}
+        >
+          🔊
+        </button>
+        <button className="blackButton"
+          type="button"
+          onClick={() => {
+            playerOne.stop();
+            playerTwo.stop();
+          }}
+        >
+     ᙮
+        </button>
+      </div>
        
   
 

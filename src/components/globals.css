@@ -1,4 +1,4 @@
-/* html, body {margin: 0; height: 100%; overflow: hidden} */
+html, body {margin: 0; height: 100%; overflow: hidden}
 
 * {
     margin: 0;
@@ -101,20 +101,21 @@ input[type="range"] {
     flex-direction: column;
     width: 90%;
     margin: auto;
+    padding: 1rem 0rem 0 0rem;
 }
 
 .buttonContainer {
     display: flex;
     width: 100%;
     gap: 10px;
-   padding: 0.5rem 2rem 0 2rem;
+   padding: 0.5rem 0rem 0 0rem;
+   
 }
 
 .blackButton {
     border: none;
-    border-radius: 0;
-    background: #000;
-    color: #FFF;
-    width: 2rem;
+    color: #000000;
+    width: 1rem;
     height: 1.5rem;
+    background: rgb(255, 255, 255);
 }
