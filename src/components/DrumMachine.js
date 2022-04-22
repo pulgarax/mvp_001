@@ -68,6 +68,8 @@ export default function TonePlayer() {
           setPitchValueTwo(random(0.001, 2));
           setFilterFrequencyOne(random(0, 8000));
           setFilterFrequencyTwo(random(0, 8000));
+          setVolumeValueOne(random(-19, 3));
+          setVolumeValueTwo(random(-19, 3));
         }}
       >  
       </button>
@@ -93,6 +95,8 @@ export default function TonePlayer() {
           setPitchValueTwo(random(0.001, 2));
           setFilterFrequencyOne(random(0, 8000));
           setFilterFrequencyTwo(random(0, 8000));
+          setVolumeValueOne(random(-19, 3));
+          setVolumeValueTwo(random(-19, 3));
         }}
       >  
       </button> 
