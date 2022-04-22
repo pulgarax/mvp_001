@@ -19,7 +19,7 @@ input[type="range"] {
     height: 11px;
     width: 100%;
     cursor: pointer;
-    border-radius: 0; /* iOS */
+    border-radius:4; /* iOS */
 }
 
 ::-webkit-slider-runnable-track {
